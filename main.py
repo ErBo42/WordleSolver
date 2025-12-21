@@ -21,22 +21,18 @@ class WordleSolver:
     def in_word(self, letter):
         self.word_list = [word for word in self.word_list if letter in word]
 
+    def at_pos(self, letter, pos):
+        self.word_list = [word for word in self.word_list if letter is word[pos]]
+
+    def not_at_pos(self, letter, pos):
+        self.in_word(letter)
+        self.word_list = [word for word in self.word_list if letter is not word[pos]]
+
 solver = WordleSolver()
 solver.create_word_list()
-solver.delete_word("a")
-solver.delete_word("w")
-solver.delete_word("e")
-solver.delete_word("t")
-solver.delete_word("u")
-solver.delete_word("o")
-solver.delete_word("p")
-solver.delete_word("s")
-solver.delete_word("l")
-solver.delete_word("c")
-solver.delete_word("n")
 
-solver.in_word("r")
-solver.in_word("h")
-
+solver.at_pos("a", 0)
+solver.at_pos("e", 4)
+solver.not_at_pos("d", 2)
 print(solver.get_word_list())
 
