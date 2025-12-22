@@ -4,6 +4,7 @@ class WordleSolver:
         self.__word_list = []
         self.__letter_total_dict = {}
         self.__letter_freq_dict = {}
+        self.create_word_list()
 
 
     def create_word_list(self):
@@ -51,6 +52,7 @@ class WordleSolver:
         return self.__letter_total_dict
 
     def get_word_rec(self):
+        self.create_letter_freq()
         best_word = ""
         best_value = 0
         for word in self.__word_list:
@@ -67,16 +69,5 @@ class WordleSolver:
                 best_word = current_word
         return best_word
 
-solver = WordleSolver()
-solver.create_word_list()
 
-solver.delete_word("e")
-solver.delete_word("r")
-solver.delete_word("o")
-solver.not_at_pos("a", 1)
-solver.not_at_pos("s", 5)
-
-solver.create_letter_freq()
-
-print(solver.get_word_rec())
 
