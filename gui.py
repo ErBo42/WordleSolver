@@ -5,15 +5,26 @@ solver = main.WordleSolver()
 
 def solve():
     letter1 = e1.get()
+    e1.delete(0, END)
     letter2 = e2.get()
+    e2.delete(0, END)
     letter3 = e3.get()
+    e3.delete(0, END)
     letter4 = e4.get()
+    e4.delete(0, END)
     letter5 = e5.get()
+    e5.delete(0, END)
     v1 = var1.get()
     v2 = var2.get()
     v3 = var3.get()
     v4 = var4.get()
     v5 = var5.get()
+
+    var1.set(None)
+    var2.set(None)
+    var3.set(None)
+    var4.set(None)
+    var5.set(None)
 
     match v1:
         case 1:
